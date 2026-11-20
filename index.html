@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#071b18">
+
+  <meta name="description" content="Biqsolo HealthDesk brings healthcare facility operations, inventory, staff coordination and reporting into one workspace.">
+
+  <title>Biqsolo HealthDesk | Healthcare Operations Simplified</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+
+      --green:#087e68;
+
+      --dark:#071b18;
+
+      --ink:#152c28;
+
+      --muted:#70817c;
+
+      --light:#f5f8f6;
+
+      --line:#e6eeea;
+
+      --white:#ffffff;
+
+    }
+
+    * {box-sizing:border-box;margin:0;padding:0}
+
+    html {scroll-behavior:smooth}
+
+    body {
+
+      font-family:'DM Sans',sans-serif;
+
+      color:var(--ink);
+
+      background:white;
+
+      line-height:1.6;
+
+    }
+
+    a {text-decoration:none;color:inherit}
+
+    button {font:inherit;cursor:pointer}
+
+    .container {width:min(1160px,91%);margin:auto}
+
+    .header {
+
+      height:78px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:20px;
+
+      border-bottom:1px solid var(--line);
+
+      background:#ffffffed;
+
+      position:sticky;
+
+      top:0;
+
+      z-index:10;
+
+      backdrop-filter:blur(15px);
+
+      padding:0 4.5%;
+
+    }
+
+    .brand {
+
+      display:flex;
+
+      align-items:center;
+
+      gap:10px;
+
+      font-family:Manrope,sans-serif;
+
+      font-size:18px;
+
+      font-weight:800;
+
+      letter-spacing:-.7px;
+
+    }
+
+    .brand b {color:var(--green)}
+
+    .brand-icon {
+
+      width:39px;height:39px;
+
+      display:grid;place-items:center;
+
+      color:white;background:var(--green);
+
+      border-radius:12px;font-size:23px;
+
+    }
+
+    .nav {display:flex;align-items:center;gap:30px}
+
+    .nav a {font-size:13px;color:#60716b;font-weight:600}
+
+    .nav a:hover {color:var(--green)}
+
+    .header-actions {display:flex;gap:12px;align-items:center}
+
+    .btn {
+
+      display:inline-flex;align-items:center;justify-content:center;
+
+      gap:9px;padding:13px 21px;border-radius:9px;
+
+      font-weight:700;font-size:13px;border:1px solid transparent;
+
+      transition:.2s;
+
+    }
+
+    .btn-primary {background:var(--green);color:white}
+
+    .btn-primary:hover {background:#066957;transform:translateY(-2px)}
+
+    .btn-outline {border-color:#dce8e2;color:var(--ink)}
+
+    .btn-outline:hover {border-color:var(--green);color:var(--green)}
+
+    .btn-dark {background:var(--dark);color:white}
+
+    .hero {
+
+      padding:100px 0 90px;
+
+      display:grid;grid-template-columns:1fr 1fr;
+
+      align-items:center;gap:65px;
+
+      overflow:hidden;
+
+    }
+
+    .eyebrow {
+
+      display:inline-flex;align-items:center;gap:9px;
+
+      color:var(--green);font-size:11px;
+
+      font-weight:800;letter-spacing:1.8px;
+
+      margin-bottom:22px;
+
+    }
+
+    .dot {width:8px;height:8px;border-radius:50%;background:#13aa83}
+
+    h1,h2,h3 {font-family:Manrope,sans-serif}
+
+    .hero h1 {
+
+      font-size:clamp(42px,5.3vw,67px);
+
+      line-height:1.12;letter-spacing:-3.5px;
+
+      font-weight:800;max-width:600px;
+
+    }
+
+    .hero h1 span,.section-heading h2 span {color:var(--green)}
+
+    .hero-text {
+
+      margin-top:23px;max-width:480px;
+
+      color:var(--muted);font-size:16px;line-height:1.9;
+
+    }
+
+    .hero-buttons {display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+
+    .hero-points {
+
+      display:flex;gap:22px;flex-wrap:wrap;
+
+      margin-top:34px;color:#71817b;font-size:11px;
+
+    }
+
+    .hero-points span:before {content:"✓";color:var(--green);font-weight:bold;margin-right:7px}
+
+    .dashboard {
+
+      background:#f0f6f3;padding:16px;border-radius:20px;
+
+      box-shadow:0 30px 80px #123d301b;
+
+      border:1px solid #e1ece6;
+
+      position:relative;
+
+    }
+
+    .dash-inner {background:white;border-radius:13px;padding:20px}
+
+    .dash-head {display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+
+    .dash-brand {font-weight:800;font-family:Manrope;font-size:14px}
+
+    .dash-user {
+
+      background:#e6f5ef;color:var(--green);
+
+      padding:7px 11px;border-radius:30px;font-size:10px;font-weight:800;
+
+    }
+
+    .dash-title {font-size:18px;font-weight:800;font-family:Manrope}
+
+    .dash-sub {font-size:11px;color:#94a19b;margin-top:3px}
+
+    .stats {
+
+      display:grid;grid-template-columns:repeat(2,1fr);
+
+      gap:12px;margin-top:20px;
+
+    }
+
+    .stat {
+
+      border:1px solid var(--line);padding:15px;border-radius:10px;
+
+    }
+
+    .stat small {display:block;color:#84928c;font-size:10px}
+
+    .stat strong {font-size:25px;font-family:Manrope;display:block;margin-top:5px}
+
+    .stat em {font-size:9px;color:var(--green);font-style:normal}
+
+    .activity {
+
+      margin-top:20px;border:1px solid var(--line);
+
+      border-radius:10px;padding:16px;
+
+    }
+
+    .activity h4 {font-size:12px;margin-bottom:14px}
+
+    .activity-row {
+
+      display:flex;justify-content:space-between;
+
+      padding:10px 0;border-top:1px solid #f0f3f1;
+
+      font-size:10px;color:#6e7e77;
+
+    }
+
+    .status {color:var(--green);font-weight:800}
+
+    .trust {
+
+      background:var(--light);padding:27px 0;
+
+      border-top:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+
+    }
+
+    .trust-inner {
+
+      display:flex;align-items:center;justify-content:space-between;
+
+      gap:20px;flex-wrap:wrap;
+
+    }
+
+    .trust-label {font-size:10px;letter-spacing:1px;color:#91a099;font-weight:800}
+
+    .trust-item {font-size:13px;font-weight:700;color:#65756e}
+
+    .section {padding:100px 0}
+
+    .section-heading {max-width:650px;margin-bottom:45px}
+
+    .section-heading h2 {
+
+      font-size:clamp(31px,4vw,46px);
+
+      line-height:1.2;letter-spacing:-1.8px;
+
+    }
+
+    .section-heading p {
+
+      color:var(--muted);margin-top:17px;
+
+      font-size:14px;line-height:1.9;
+
+    }
+
+    .features {
+
+      display:grid;grid-template-columns:repeat(3,1fr);gap:17px;
+
+    }
+
+    .feature {
+
+      border:1px solid var(--line);padding:27px;
+
+      border-radius:13px;transition:.2s;
+
+      background:white;
+
+    }
+
+    .feature:hover {
+
+      transform:translateY(-5px);
+
+      box-shadow:0 18px 40px #153d2c0b;
+
+      border-color:#b9d9cb;
+
+    }
+
+    .feature-icon {
+
+      width:46px;height:46px;border-radius:12px;
+
+      background:#e8f5ef;display:grid;place-items:center;
+
+      font-size:22px;margin-bottom:22px;
+
+    }
+
+    .feature h3 {font-size:16px;margin-bottom:10px}
+
+    .feature p {font-size:12px;color:var(--muted);line-height:1.9}
+
+    .feature-number {
+
+      color:#a2b5ab;font-size:10px;
+
+      font-weight:800;letter-spacing:1px;
+
+    }
+
+    .platform {
+
+      background:var(--dark);color:white;
+
+      padding:90px 0;
+
+    }
+
+    .platform-grid {
+
+      display:grid;grid-template-columns:1fr 1fr;
+
+      gap:65px;align-items:center;
+
+    }
+
+    .platform h2 {
+
+      font-size:clamp(32px,4vw,46px);
+
+      line-height:1.2;letter-spacing:-1.8px;
+
+    }
+
+    .platform h2 span {color:#58c9a6}
+
+    .platform p {
+
+      color:#a5b8b0;font-size:14px;
+
+      line-height:1.9;margin-top:19px;
+
+    }
+
+    .platform-list {display:grid;gap:16px}
+
+    .platform-item {
+
+      display:flex;gap:15px;align-items:flex-start;
+
+      padding:19px;border:1px solid #ffffff20;
+
+      border-radius:12px;background:#ffffff08;
+
+    }
+
+    .platform-item strong {font-size:13px}
+
+    .platform-item small {display:block;color:#9aafa6;font-size:11px;margin-top:4px}
+
+    .platform-check {color:#64d6ae;font-size:20px}
+
+    .cta {padding:90px 0;text-align:center}
+
+    .cta h2 {font-size:clamp(32px,4vw,45px);letter-spacing:-1.8px;line-height:1.2}
+
+    .cta p {color:var(--muted);font-size:14px;margin:17px auto 27px;max-width:490px}
+
+    .footer {
+
+      background:#f5f8f6;padding:28px 0;
+
+      border-top:1px solid var(--line);
+
+    }
+
+    .footer-inner {
+
+      display:flex;justify-content:space-between;
+
+      align-items:center;gap:15px;flex-wrap:wrap;
+
+    }
+
+    .footer small {font-size:11px;color:#8b9992}
+
+    @media(max-width:850px) {
+
+      .hero {grid-template-columns:1fr;gap:55px;padding:70px 0}
+
+      .hero-copy {max-width:650px}
+
+      .dashboard {max-width:600px;width:100%;margin:auto}
+
+      .platform-grid {grid-template-columns:1fr;gap:40px}
+
+      .features {grid-template-columns:repeat(2,1fr)}
+
+      .nav {display:none}
+
+    }
+
+    @media(max-width:540px) {
+
+      .header {height:68px;padding:0 4%}
+
+      .brand {font-size:15px}
+
+      .brand-icon {width:34px;height:34px}
+
+      .header-actions .btn {padding:10px 12px;font-size:11px}
+
+      .hero {padding:65px 0}
+
+      .hero h1 {font-size:43px;letter-spacing:-2px}
+
+      .hero-text {font-size:14px}
+
+      .hero-points {gap:12px}
+
+      .features {grid-template-columns:1fr}
+
+      .section {padding:70px 0}
+
+      .platform {padding:70px 0}
+
+      .trust-inner {justify-content:center}
+
+      .trust-label {width:100%;text-align:center}
+
+      .footer-inner {justify-content:center;text-align:center}
+
+      .dash-inner {padding:13px}
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+  <a class="brand" href="#">
+
+    <span class="brand-icon">✚</span>
+
+    <span>Biqsolo <b>HealthDesk</b></span>
+
+  </a>
+
+  <nav class="nav">
+
+    <a href="#features">Features</a>
+
+    <a href="#platform">Platform</a>
+
+    <a href="#about">About</a>
+
+  </nav>
+
+  <div class="header-actions">
+
+    <a href="#features" class="btn btn-outline">Explore</a>
+
+    <a href="#contact" class="btn btn-primary">Get started ↗</a>
+
+  </div>
+
+</header>
+
+<main>
+
+<section class="container hero">
+
+  <div class="hero-copy">
+
+    <div class="eyebrow"><span class="dot"></span> HEALTHCARE OPERATIONS, SIMPLIFIED</div>
+
+    <h1>Better systems for <span>better healthcare.</span></h1>
+
+    <p class="hero-text">
+
+      Meet Biqsolo HealthDesk — a modern digital workspace
+
+      designed to help healthcare facilities manage daily
+
+      operations, resources, teams and performance with greater clarity.
+
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#features" class="btn btn-primary">Discover HealthDesk ↗</a>
+
+      <a href="#platform" class="btn btn-outline">Explore platform</a>
+
+    </div>
+
+    <div class="hero-points">
+
+      <span>Easy to navigate</span>
+
+      <span>Facility-focused</span>
+
+      <span>Built to grow</span>
+
+    </div>
+
+  </div>
+
+  <div class="dashboard">
+
+    <div class="dash-inner">
+
+      <div class="dash-head">
+
+        <div class="dash-brand">✚ HealthDesk</div>
+
+        <span class="dash-user">PREVIEW</span>
+
+      </div>
+
+      <div class="dash-title">Facility overview</div>
+
+      <div class="dash-sub">A preview of your operational workspace</div>
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <small>Inventory items</small>
+
+          <strong>248</strong>
+
+          <em>Stock overview</em>
+
+        </div>
+
+        <div class="stat">
+
+          <small>Open tasks</small>
+
+          <strong>18</strong>
+
+          <em>Daily operations</em>
+
+        </div>
+
+        <div class="stat">
+
+          <small>Team members</small>
+
+          <strong>12</strong>
+
+          <em>Team coordination</em>
+
+        </div>
+
+        <div class="stat">
+
+          <small>Reports</small>
+
+          <strong>06</strong>
+
+          <em>Reporting centre</em>
+
+        </div>
+
+      </div>
+
+      <div class="activity">
+
+        <h4>Recent activity</h4>
+
+        <div class="activity-row"><span>Inventory management</span><span class="status">Ready</span></div>
+
+        <div class="activity-row"><span>Team coordination</span><span class="status">Planned</span></div>
+
+        <div class="activity-row"><span>Operational reports</span><span class="status">Planned</span></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="trust">
+
+  <div class="container trust-inner">
+
+    <span class="trust-label">DESIGNED FOR HEALTHCARE FACILITIES</span>
+
+    <span class="trust-item">Clinics</span>
+
+    <span class="trust-item">Primary healthcare centres</span>
+
+    <span class="trust-item">Diagnostic facilities</span>
+
+    <span class="trust-item">Growing healthcare teams</span>
+
+  </div>
+
+</section>
+
+<section class="section container" id="features">
+
+  <div class="section-heading">
+
+    <div class="eyebrow">ONE CONNECTED WORKSPACE</div>
+
+    <h2>Everything your facility needs to <span>work smarter.</span></h2>
+
+    <p>
+
+      Healthcare teams have many responsibilities beyond patient care.
+
+      HealthDesk aims to bring important operational activities together
+
+      in one organised digital environment.
+
+    </p>
+
+  </div>
+
+  <div class="features">
+
+    <article class="feature">
+
+      <div class="feature-icon">📦</div>
+
+      <span class="feature-number">01 / RESOURCES</span>
+
+      <h3>Inventory management</h3>
+
+      <p>Monitor supplies, record stock movements and identify low-stock items.</p>
+
+    </article>
+
+    <article class="feature">
+
+      <div class="feature-icon">👥</div>
+
+      <span class="feature-number">02 / PEOPLE</span>
+
+      <h3>Staff management</h3>
+
+      <p>Organise team members, responsibilities and facility access permissions.</p>
+
+    </article>
+
+    <article class="feature">
+
+      <div class="feature-icon">📊</div>
+
+      <span class="feature-number">03 / INSIGHTS</span>
+
+      <h3>Performance analytics</h3>
+
+      <p>Understand facility activity through organised reports and summaries.</p>
+
+    </article>
+
+    <article class="feature">
+
+      <div class="feature-icon">🗓️</div>
+
+      <span class="feature-number">04 / PLANNING</span>
+
+      <h3>Tasks and scheduling</h3>
+
+      <p>Coordinate operational responsibilities, schedules and follow-ups.</p>
+
+    </article>
+
+    <article class="feature">
+
+      <div class="feature-icon">🚚</div>
+
+      <span class="feature-number">05 / PROCUREMENT</span>
+
+      <h3>Suppliers and procurement</h3>
+
+      <p>Organise supplier information, purchase requests and stock receipts.</p>
+
+    </article>
+
+    <article class="feature">
+
+      <div class="feature-icon">🔔</div>
+
+      <span class="feature-number">06 / NOTIFICATIONS</span>
+
+      <h3>Smart notifications</h3>
+
+      <p>Plan timely alerts for operational tasks and important inventory events.</p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section class="platform" id="platform">
+
+  <div class="container platform-grid">
+
+    <div>
+
+      <div class="eyebrow" style="color:#65d8b2">OUR APPROACH</div>
+
+      <h2>Technology that supports the people <span>behind healthcare.</span></h2>
+
+      <p>
+
+        Our goal is to make everyday facility administration
+
+        more organised, visible and manageable.
+
+        We are developing HealthDesk as a modular platform
+
+        that can grow with healthcare facilities.
+
+      </p>
+
+    </div>
+
+    <div class="platform-list">
+
+      <div class="platform-item">
+
+        <span class="platform-check">✓</span>
+
+        <div><strong>Organised facility operations</strong><small>Bring essential administrative workflows together.</small></div>
+
+      </div>
+
+      <div class="platform-item">
+
+        <span class="platform-check">✓</span>
+
+        <div><strong>Responsible access management</strong><small>Build around appropriate staff permissions and accountability.</small></div>
+
+      </div>
+
+      <div class="platform-item">
+
+        <span class="platform-check">✓</span>
+
+        <div><strong>Scalable architecture</strong><small>Develop additional modules as facilities grow.</small></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="cta container" id="contact">
+
+  <div class="eyebrow">THE FUTURE OF FACILITY OPERATIONS</div>
+
+  <h2>Let's make healthcare operations <span style="color:#087e68">work better.</span></h2>
+
+  <p>
+
+    Biqsolo HealthDesk is being developed to support
+
+    healthcare facilities with clearer, more organised operations.
+
+  </p>
+
+  <a href="mailto:hello@biqsolo.com?subject=HealthDesk%20Enquiry" class="btn btn-primary">Contact Biqsolo ↗</a>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+  <div class="container footer-inner">
+
+    <a class="brand" href="#"><span class="brand-icon">✚</span><span>Biqsolo <b>HealthDesk</b></span></a>
+
+    <small>© <span id="year"></span> Biqsolo HealthDesk. All rights reserved.</small>
+
+    <small>Healthcare operations, made clearer.</small>
+
+  </div>
+
+</footer>
+
+<script>
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+</script>
+
+</body>
+
+</html>
